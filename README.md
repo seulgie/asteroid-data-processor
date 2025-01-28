@@ -1,6 +1,6 @@
-# NEO Analytics - Near-Earth Object Data Query and Analysis
+# Aesteroid Data Processor - Near-Earth Object Data Query and Analysis
 
-Welcome to **NEO Analytics**, a robust Python project designed to filter, analyze, and save data related to Near-Earth Objects (NEOs) and their close approaches to Earth. This project showcases advanced programming techniques and highlights the skills acquired in object-oriented programming, abstract methods, and the design of extensible systems. The starter code and guideline is illustrated in project_instruction.md.
+Welcome to **Aesteroid Data Processor**, a robust Python project designed to filter, analyze, and save data related to Near-Earth Objects (NEOs) and their close approaches to Earth. This project showcases advanced programming techniques and highlights the skills acquired in object-oriented programming, abstract methods, and the design of extensible systems. The starter code and guideline is illustrated in project_instruction.md.
 
 ## Project Features
 
