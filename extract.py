@@ -1,4 +1,13 @@
+"""Extract and load data for near-Earth objects and close approaches.
 
+This module provides functions to read near-Earth object (NEO) data from a CSV file
+and close approach (CAD) data from a JSON file. The data is parsed and converted
+into corresponding 'NearEarthObject' and 'CloseApproach' instances for further use.
+
+Functions:
+- load_neos: Reads NEO data from a CSV file and returns a list of 'NearEarthObject's.
+- load_approaches: Reads CAD data from a JSON file and returns a list of 'CloseApproach'es.
+"""
 import csv
 import json
 
@@ -8,14 +17,16 @@ from models import NearEarthObject, CloseApproach
 def load_neos(neo_csv_path):
     """Read near-Earth object information from a CSV file.
 
-    :param neo_csv_path: A path to a CSV file containing data about near-Earth objects.
-    :return: A collection of `NearEarthObject`s.
+    This function reads data from a CSV file containing information about NEOs and
+    converts each entry into an instance of the 'NearEarthObject' class.
+
+    :param neo_csv_path: str - A path to the CSV file containing NEO data.
+    :return: list[NearEarthObject] - A list of `NearEarthObject` instances.
     """
     neos = []
     with open(neo_csv_path, 'r') as infile:
         reader = csv.DictReader(infile)
         for row in reader:
-            # Extract relevant fields and pass them to the NearEarthObject constructor
             neos.append(NearEarthObject(
                 designation=row.get('pdes',''),
                 name=row.get('name') or None,
@@ -28,13 +39,15 @@ def load_neos(neo_csv_path):
 def load_approaches(cad_json_path):
     """Read close approach data from a JSON file.
 
-    :param cad_json_path: A path to a JSON file containing data about close approaches.
-    :return: A collection of `CloseApproach`es.
+    This function reads data from a JSON file containing close approach details and
+    converts each entry into an instance of the 'CloseApproach' class.
+
+    :param cad_json_path: str - A path to a JSON file containing close approach data.
+    :return: list[CloseApproach] - A list of 'CloseApproach' instances.
     """
     approaches = []
     with open(cad_json_path, 'r') as infile:
         contents = json.load(infile)
-        # The data is under the "data" key, and field names are mapped in the "fields" key
         fields = contents['fields']
         data = contents['data']
 

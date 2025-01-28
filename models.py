@@ -1,3 +1,5 @@
+"""This module contains classes that define Near-Earth Objects (NEOs) and their close approaches to Earth."""
+
 from helpers import cd_to_datetime, datetime_to_str
 
 
@@ -8,12 +10,8 @@ class NearEarthObject:
     as its primary designation (required, unique), IAU name (optional), diameter
     in kilometers (optional - sometimes unknown), and whether it's marked as
     potentially hazardous to Earth.
-
-    A `NearEarthObject` also maintains a collection of its close approaches -
-    initialized to an empty collection, but eventually populated in the
-    `NEODatabase` constructor.
     """
-    """A near-Earth object (NEO)."""
+    
     def __init__(self, **info):
         """Create a new `NearEarthObject`."""
         # Assigning values from the dictionary to instance attributes
@@ -59,13 +57,8 @@ class CloseApproach:
     Earth, such as the date and time (in UTC) of closest approach, the nominal
     approach distance in astronomical units, and the relative approach velocity
     in kilometers per second.
-
-    A `CloseApproach` also maintains a reference to its `NearEarthObject` -
-    initially, this information (the NEO's primary designation) is saved in a
-    private attribute, but the referenced NEO is eventually replaced in the
-    `NEODatabase` constructor.
     """
-    """A close approach to Earth by an NEO."""
+    
     def __init__(self, **info):
         """Create a new `CloseApproach`."""
         self._designation = info.get("designation", "")
@@ -79,8 +72,6 @@ class CloseApproach:
     @property
     def time_str(self):
         """Return a formatted representation of this `CloseApproach`'s approach time."""
-        # TODO: Use this object's `.time` attribute and the `datetime_to_str` function to
-        # build a formatted representation of the approach time.
         return datetime_to_str(self.time)
 
     def __str__(self):
